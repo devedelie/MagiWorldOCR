@@ -8,6 +8,7 @@ public abstract class Character {
         protected int agility;
         protected int intelligence;
 
+
     public Character(String name, int level, int vitality, int strength, int agility, int intelligence) {
         this.name = name;
         this.level = level;

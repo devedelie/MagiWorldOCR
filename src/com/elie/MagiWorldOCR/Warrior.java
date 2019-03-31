@@ -4,6 +4,7 @@ public class Warrior extends Character{
     protected int basicAttackSwordStrike;
     protected int specialAttackRageStrike;
 
+
     public Warrior(String name, int level, int vitality, int strength, int agility, int intelligence) {
         super(name, level, vitality, strength, agility, intelligence);
 
@@ -11,9 +12,7 @@ public class Warrior extends Character{
 
     @Override
     public String toString() {
-        return "Warrior{" +
-                "basicAttackSwordStrike=" + basicAttackSwordStrike +
-                ", specialAttackRageStrike=" + specialAttackRageStrike +
+        return "Warrior:" +
                 ", name='" + name + '\'' +
                 ", level=" + level +
                 ", vitality=" + vitality +
