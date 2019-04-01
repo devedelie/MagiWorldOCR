@@ -5,10 +5,28 @@ public class Warrior extends Character{
     protected int specialAttackRageStrike;
 
 
-    public Warrior(String name, int level, int vitality, int strength, int agility, int intelligence) {
-        super(name, level, vitality, strength, agility, intelligence);
+    protected Warrior(String name, int level, int strength, int agility, int intelligence) {
+        super(name, level, strength, agility, intelligence);
 
     }
+
+    @Override
+    public void BasicAttack(Character opponent, Character currentPlayer) {
+        System.out.println("Sword Strike!");
+        opponent.vitality = opponent.vitality - currentPlayer.strength;
+        System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
+    }
+
+    @Override
+    public void SpecialAttack(Character opponent, Character currentPlayer) {
+        System.out.println("Rage Strike!");
+        opponent.vitality = opponent.vitality - (currentPlayer.strength*2);
+        currentPlayer.vitality = currentPlayer.vitality - (currentPlayer.strength/2);
+        System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
+        System.out.println("You have lost some power. Your new vitality is: " + currentPlayer.vitality);
+    }
+
+
 
     @Override
     public String toString() {
@@ -17,8 +35,7 @@ public class Warrior extends Character{
                 ", vitality=" + vitality +
                 ", strength=" + strength +
                 ", agility=" + agility +
-                ", intelligence=" + intelligence +
-                '}';
+                ", intelligence=" + intelligence ;
     }
 
 

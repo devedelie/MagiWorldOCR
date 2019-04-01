@@ -12,7 +12,7 @@ public class Game {
 
 
     /**
-     * GameProcess() method is managing the entire process of the game by initiating both players
+     * GameProcess() method, is managing the entire process of the game by initiating both players
      * characters and their performances, through attack modes and winner declaration.
      */
 
@@ -25,16 +25,16 @@ public class Game {
         do {
             p1 = RequestValueForPlayerTurn("Player 1 - Select your attack \n 1) Basic Attack \n 2) Special Attack\n");
             if (p1 == 1) {
-                player1.BasicAttack(player2);
+                player1.BasicAttack(player2, player1);
             } else {
-                player1.SpecialAttack(player2);
+                player1.SpecialAttack(player2, player1);
             }
 
             p2 = RequestValueForPlayerTurn("Player 2 - Select your attack \n 1) Basic Attack \n 2) Special Attack\n");
             if(p2 == 1){
-                player2.BasicAttack(player1);
+                player2.BasicAttack(player1, player2);
             }else {
-                player2.SpecialAttack(player1);
+                player2.SpecialAttack(player1, player2);
             }
 
         }while (player1.vitality>0 && player2.vitality>0);
