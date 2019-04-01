@@ -6,20 +6,32 @@ import java.lang.*;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
-    Character player1;
-    Character player2;
+    Character player1, player2;
     Character general; // Is used to set Player1 and Player2
+    int p1, p2;
 
 
 
-    public void playersTurn() {
+    public void GameProcess() {
         player1 = characterSelectionMenu("Player 1 ", 0);
         player1 = general;
         player2 = characterSelectionMenu("Player 2 ",0);
         player2 = general;
-        System.out.println("\n Fight begin!\n");
+        System.out.println("\n 3...2...1... Fight!\n");
         do {
-            
+            p1 = RequestValueForPlayerTurn("Player 1 - Select your attack \n 1) Basic Attack \n 2) Special Attack");
+            if (p1 == 1) {
+                player1.BasicAttack(player2);
+            } else {
+                player1.SpecialAttack(player2);
+            }
+
+            p2 = RequestValueForPlayerTurn("Player 2 - Select your attack \n 1) Basic Attack \n 2) Special Attack");
+            if(p2 == 1){
+                player2.BasicAttack(player1);
+            }else {
+                player2.SpecialAttack(player1);
+            }
 
 
         }while (player1.vitality>0 && player2.vitality>0);
@@ -34,7 +46,8 @@ public class Game {
     }
 
 
-    int RequestValueForPlayerTurn (String text) {
+    public int RequestValueForPlayerTurn (String text) {
+        Character character= null;
         System.out.println(text);
         int value = 0;
         boolean valueTrigger;
@@ -152,7 +165,6 @@ public class Game {
             }
         } while (!valueTrigger);
         return value;
-
 
     }
 }
