@@ -16,7 +16,30 @@ public abstract class Character {
         this.strength = strength;
         this.agility = agility;
         this.intelligence = intelligence;
+
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public int getVitality() {
+        return vitality;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
 }
