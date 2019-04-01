@@ -11,6 +11,10 @@ public class Game {
     int p1, p2;
 
 
+    /**
+     * GameProcess() method is managing the entire process of the game by initiating both players
+     * characters and their performances, through attack modes and winner declaration.
+     */
 
     public void GameProcess() {
         player1 = characterSelectionMenu("Player 1 ", 0);
@@ -19,44 +23,62 @@ public class Game {
         player2 = general;
         System.out.println("\n 3...2...1... Fight!\n");
         do {
-            p1 = RequestValueForPlayerTurn("Player 1 - Select your attack \n 1) Basic Attack \n 2) Special Attack");
+            p1 = RequestValueForPlayerTurn("Player 1 - Select your attack \n 1) Basic Attack \n 2) Special Attack\n");
             if (p1 == 1) {
                 player1.BasicAttack(player2);
             } else {
                 player1.SpecialAttack(player2);
             }
 
-            p2 = RequestValueForPlayerTurn("Player 2 - Select your attack \n 1) Basic Attack \n 2) Special Attack");
+            p2 = RequestValueForPlayerTurn("Player 2 - Select your attack \n 1) Basic Attack \n 2) Special Attack\n");
             if(p2 == 1){
                 player2.BasicAttack(player1);
             }else {
                 player2.SpecialAttack(player1);
             }
 
-
         }while (player1.vitality>0 && player2.vitality>0);
+
             if (player1.vitality<=0) {
-                System.out.println("Player 2 win the game!");
+                System.out.println("Player 2 is the winner!");
             }else{
-                System.out.println("Player 1 Win the game!");
+                System.out.println("Player 1 is the winner!");
             }
         System.out.println("Game is over. \n");
             System.exit(0);
 
     }
 
+    /**
+     * A method to operate the Attack selection and requests a value between 1-2
+     * The code prevents the user to type letters or figures out of 1 or 2
+     * @param text a message String to the user
+     * @return the value return
+     */
 
     public int RequestValueForPlayerTurn (String text) {
+
         Character character= null;
         System.out.println(text);
         int value = 0;
         boolean valueTrigger;
+        try {
+           do {
 
-        do {
-            value = sc.nextInt();
-            valueTrigger = true;
+                value = sc.nextInt();
+                if (value < 1 || value > 2) {
+                    valueTrigger = false;
+                    System.out.println("\nIncorrect number! Please select a number between 1 - 2\n");
+                }else{
+                    valueTrigger = true;
+                }
+        }while (!valueTrigger);
 
-        } while (!valueTrigger);
+        }catch (InputMismatchException e) {
+            sc.next();
+            System.err.println("Error! \n");
+            RequestValueForPlayerTurn("Letters are not allowed. Please select a number between 1-2");
+        }
         return value;
     }
 
