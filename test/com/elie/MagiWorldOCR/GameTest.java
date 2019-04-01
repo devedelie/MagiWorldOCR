@@ -13,10 +13,7 @@ class GameTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 
-    @BeforeEach
-    void setUp() {
 
-    }
     @Test
     public void Given_IntValue_When_RequestValue_Then_CheckValueLimit() {
         System.setIn(new ByteArrayInputStream(String.format("56%n").getBytes()));
@@ -33,5 +30,23 @@ class GameTest {
         assertEquals(65, value);
     }
 
+//    @Test
+//    public void Given_GoodValuesInStandardInput_When_CharacterSelectionMenusIsRun_Then_DisplayCharacter() {
+//        System.setIn(new ByteArrayInputStream(String.format("text%n1%n100%n30%n30%n30%n").getBytes()));
+//        game.characterSelectionMenu("Player 1", 0);
+//        String[] output = outContent.toString().replace("\r\n", "\n").split("\n");
+//        assertEquals("Your character is Warrior", output[1]);
+//    }
 
+    @Test
+    public void Given_PerformancesMenuSelection_When_SelectedCharacter_Then_WarriorIsCreated() {
+        System.setIn(new ByteArrayInputStream(String.format("100%n33%n33%n33%n").getBytes()));
+        Game game = new Game();
+        Character character = game.playerPerformancesSelection(1,"Player");
+        assertEquals("Player", character.name);
+        assertEquals(100, character.level);
+        assertEquals(33, character.strength);
+        assertEquals(33, character.agility);
+        assertEquals(33, character.intelligence);
+    }
 }
