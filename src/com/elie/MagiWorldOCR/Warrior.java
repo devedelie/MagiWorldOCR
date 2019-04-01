@@ -12,13 +12,14 @@ public class Warrior extends Character{
 
     @Override
     public String toString() {
-        return "Warrior:" +
-                ", name='" + name + '\'' +
-                ", level=" + level +
+        return name + ": Warrior " +
+                ", Level = " + level + '\'' +
                 ", vitality=" + vitality +
                 ", strength=" + strength +
                 ", agility=" + agility +
                 ", intelligence=" + intelligence +
                 '}';
     }
+
+
 }

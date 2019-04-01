@@ -11,11 +11,8 @@ public class Rogue extends Character {
 
     @Override
     public String toString() {
-        return "Rogue{" +
-                "basicAttackArchery=" + basicAttackArchery +
-                ", specialAttackConcentration=" + specialAttackConcentration +
-                ", name='" + name + '\'' +
-                ", level=" + level +
+        return name + ": Rogue " +
+                ", Level = " + level + '\'' +
                 ", vitality=" + vitality +
                 ", strength=" + strength +
                 ", agility=" + agility +

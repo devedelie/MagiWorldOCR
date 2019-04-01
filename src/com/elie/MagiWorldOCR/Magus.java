@@ -11,11 +11,8 @@ public class Magus extends Character {
 
     @Override
     public String toString() {
-        return "Magus{" +
-                "basicAttackFireball=" + basicAttackFireball +
-                ", specialAttackCare=" + specialAttackCare +
-                ", name='" + name + '\'' +
-                ", level=" + level +
+        return name + ": Magus " +
+                ", Level = " + level + '\'' +
                 ", vitality=" + vitality +
                 ", strength=" + strength +
                 ", agility=" + agility +
