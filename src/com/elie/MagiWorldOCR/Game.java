@@ -2,12 +2,13 @@ package com.elie.MagiWorldOCR;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.lang.*;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
     Character player1;
     Character player2;
-    Character general;
+    Character general; // Is used to set Player1 and Player2
 
 
 
@@ -16,26 +17,38 @@ public class Game {
         player1 = general;
         player2 = characterSelectionMenu("Player 2 ",0);
         player2 = general;
+        System.out.println("\n Fight begin!\n");
+        do {
+            
 
+
+        }while (player1.vitality>0 && player2.vitality>0);
+            if (player1.vitality<=0) {
+                System.out.println("Player 2 win the game!");
+            }else{
+                System.out.println("Player 1 Win the game!");
+            }
+        System.out.println("Game is over. \n");
+            System.exit(0);
 
     }
 
 
-//    int RequestValueForPlayerTurn (String text) {
-//        System.out.println(text);
-//        int value = 0;
-//        boolean valueTrigger;
-//
-//        do {
-//            value = sc.nextInt();
-//            valueTrigger = true;
-//
-//        } while (!valueTrigger);
-//        return value;
-//    }
+    int RequestValueForPlayerTurn (String text) {
+        System.out.println(text);
+        int value = 0;
+        boolean valueTrigger;
+
+        do {
+            value = sc.nextInt();
+            valueTrigger = true;
+
+        } while (!valueTrigger);
+        return value;
+    }
 
     /**
-     * A presentation of character selection to the player (Warrior / Magus / Rogue)
+     * A presentation of character selection menu to the player (Warrior / Magus / Rogue)
      * Also included, a loop to ensure that NO figures(below 1 and above 3) or letters are allowed.
      */
     Character characterSelectionMenu(String playerName, int characterNumber) {
@@ -99,17 +112,17 @@ public class Game {
 
         switch(typeOfCharacter){
             case 1:
-                characterObject = new Warrior(name, level, vitality, strength, agility, intelligence);
+                characterObject = new Warrior(name, level, strength, agility, intelligence);
                 System.out.println(characterObject+"\n");
                 general = characterObject;
                 break;
             case 2:
-                characterObject = new Magus(name, level, vitality, strength, agility, intelligence);
+                characterObject = new Magus(name, level, strength, agility, intelligence);
                 System.out.println(characterObject+"\n");
                 general = characterObject;
                 break;
             case 3:
-                characterObject = new Rogue(name, level, vitality, strength, agility, intelligence);
+                characterObject = new Rogue(name, level, strength, agility, intelligence);
                 System.out.println(characterObject+"\n");
                 general = characterObject;
                 break;
