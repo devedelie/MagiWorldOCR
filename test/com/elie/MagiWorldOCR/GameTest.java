@@ -30,6 +30,22 @@ class GameTest {
         assertEquals(65, value);
     }
 
+    @Test
+    public void Given_WrongValue_When_RequestIntValue_1_OR_2_Then_CheckErrorMessageAndSetCorrectNumber() {
+        System.setIn(new ByteArrayInputStream(String.format("e%n1%n").getBytes()));
+        Game game = new Game();
+        game.RequestValueForPlayerTurn("");
+        assertEquals("",  outContent.toString().replace("\r\n", "\n"));
+    }
+
+    @Test
+    public void Given_1_Or_2_Value_When_RequestIntValue_1_OR_2_Then_Check() {
+        System.setIn(new ByteArrayInputStream(String.format("1%n").getBytes()));
+        Game game = new Game();
+        game.RequestValueForPlayerTurn("");
+        assertEquals("",  outContent.toString().replace("\r\n", "\n"));
+    }
+
 //    @Test
 //    public void Given_GoodValuesInStandardInput_When_CharacterSelectionMenusIsRun_Then_DisplayCharacter() {
 //        System.setIn(new ByteArrayInputStream(String.format("1%n100%n30%n30%n30%n").getBytes()));
