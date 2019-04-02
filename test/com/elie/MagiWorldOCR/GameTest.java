@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
-    Game game = new Game();
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 
@@ -32,10 +32,11 @@ class GameTest {
 
 //    @Test
 //    public void Given_GoodValuesInStandardInput_When_CharacterSelectionMenusIsRun_Then_DisplayCharacter() {
-//        System.setIn(new ByteArrayInputStream(String.format("text%n1%n100%n30%n30%n30%n").getBytes()));
+//        System.setIn(new ByteArrayInputStream(String.format("1%n100%n30%n30%n30%n").getBytes()));
+//        Game game = new Game();
 //        game.characterSelectionMenu("Player 1", 0);
 //        String[] output = outContent.toString().replace("\r\n", "\n").split("\n");
-//        assertEquals("Your character is Warrior", output[1]);
+//        assertEquals("Player 1: Warrior , Level = 100', vitality=500, strength=30, agility=30, intelligence=30", output[1]);
 //    }
 
     @Test

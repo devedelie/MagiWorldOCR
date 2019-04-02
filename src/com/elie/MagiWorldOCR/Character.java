@@ -9,7 +9,7 @@ public abstract class Character {
         protected int intelligence;
 
 
-    public Character(String name, int level, int vitality, int strength, int agility, int intelligence) {
+    public Character(String name, int level, int strength, int agility, int intelligence) {
         this.name = name;
         this.level = level;
         this.vitality = level *5;
@@ -18,6 +18,10 @@ public abstract class Character {
         this.intelligence = intelligence;
 
     }
+
+    public abstract void BasicAttack(Character opponent, Character currentPlayer);
+
+    public abstract void SpecialAttack(Character opponent, Character currentPlayer);
 
     public String getName() {
         return name;

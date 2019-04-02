@@ -4,8 +4,23 @@ public class Rogue extends Character {
     protected int basicAttackArchery;
     protected int specialAttackConcentration;
 
-    public Rogue(String name, int level, int vitality, int strength, int agility, int intelligence) {
-        super(name, level, vitality, strength, agility, intelligence);
+    public Rogue(String name, int level, int strength, int agility, int intelligence) {
+        super(name, level, strength, agility, intelligence);
+
+    }
+
+    @Override
+    public void BasicAttack(Character opponent, Character currentPlayer) {
+        System.out.println("Archery!\n");
+        opponent.vitality = opponent.vitality - currentPlayer.agility;
+        System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
+    }
+
+    @Override
+    public void SpecialAttack(Character opponent, Character currentPlayer){
+        System.out.println("Concentration!\n");
+        currentPlayer.agility +=  (currentPlayer.level/2);
+        System.out.println("Your new agility level is = " + currentPlayer.agility + "\n");
 
     }
 
@@ -16,7 +31,6 @@ public class Rogue extends Character {
                 ", vitality=" + vitality +
                 ", strength=" + strength +
                 ", agility=" + agility +
-                ", intelligence=" + intelligence +
-                '}';
+                ", intelligence=" + intelligence ;
     }
 }
