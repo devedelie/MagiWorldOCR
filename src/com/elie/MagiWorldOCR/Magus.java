@@ -3,15 +3,13 @@ package com.elie.MagiWorldOCR;
 public class Magus extends Character {
     protected int basicAttackFireball;
     protected int specialAttackCare;
+    int initialVitality;
 
     public Magus(String name, int level, int strength, int agility, int intelligence) {
         super(name, level, strength, agility, intelligence);
-
-
+        initialVitality = vitality; // Keeps the original level value to compare when using Special Attack
     }
-
-    int levelFlag = level; // Keeps the original level value to compare when using Special Attack
-
+    
     @Override
     public void BasicAttack(Character opponent, Character currentPlayer) {
         System.out.println("Fire-Ball!");
@@ -23,8 +21,9 @@ public class Magus extends Character {
     public void SpecialAttack(Character opponent, Character currentPlayer) {
         System.out.println("Care!");
         currentPlayer.vitality = currentPlayer.vitality + (currentPlayer.intelligence*2);
-        if (currentPlayer.vitality > levelFlag)
-            currentPlayer.vitality = levelFlag;
+        if (currentPlayer.vitality > initialVitality){
+            currentPlayer.vitality = initialVitality;
+        }
         System.out.println("You have cured yourself. Your new vitality is: " + currentPlayer.vitality);
     }
 
