@@ -9,6 +9,11 @@ public class Rogue extends Character {
 
     }
 
+    /**
+     * Rogue basic attack - opponent will lose a value equals to current player agility
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void BasicAttack(Character opponent, Character currentPlayer) {
         System.out.println("Archery!\n");
@@ -16,6 +21,11 @@ public class Rogue extends Character {
         System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
     }
 
+    /**
+     * Rogue special attack - will increase current player agility by its own level divided by 2
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void SpecialAttack(Character opponent, Character currentPlayer){
         System.out.println("Concentration!\n");

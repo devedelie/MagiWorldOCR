@@ -10,6 +10,11 @@ public class Warrior extends Character{
 
     }
 
+    /**
+     * Warrior basic attack - opponent will lose a value equals to current player strength
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void BasicAttack(Character opponent, Character currentPlayer) {
         System.out.println("Sword Strike!\n");
@@ -17,6 +22,12 @@ public class Warrior extends Character{
         System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
     }
 
+    /**
+     * Warrior Special attack - opponent will lose a value equals to current player strength multiply by 2
+     * And current player will lose a value equals to its own strength divided by 2
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void SpecialAttack(Character opponent, Character currentPlayer) {
         System.out.println("Rage Strike!\n");

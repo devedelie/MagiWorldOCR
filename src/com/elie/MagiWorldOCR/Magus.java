@@ -10,6 +10,11 @@ public class Magus extends Character {
         initialVitality = vitality; // Keeps the original level value to compare when using Special Attack
     }
 
+    /**
+     * Magus basic attack - opponent will lose a value equals to current player intelligence
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void BasicAttack(Character opponent, Character currentPlayer) {
         System.out.println("Fire-Ball!\n");
@@ -17,6 +22,12 @@ public class Magus extends Character {
         System.out.println("Opponent current vitality = " + opponent.vitality + "\n");
     }
 
+    /**
+     * Magus Special attack - will increase current player vitality by 2 times its intelligence
+     * In case where the actual vitality is higher than the initial vitality, the code will set the initial vitality
+     * @param opponent
+     * @param currentPlayer
+     */
     @Override
     public void SpecialAttack(Character opponent, Character currentPlayer) {
         System.out.println("Care!\n");
